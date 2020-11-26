@@ -9,10 +9,17 @@ jobs:
   storybook:
     runs-on: ubuntu-latest
     
+    strategy:
+      matrix:
+        node-version: [8.x, 10.x, 12.x]
+    
     steps:
-    - name: Send greeting
-      run: echo "Hello ${{ github.event.inputs.name }}"
-    - name: Install npm
-      run: npm install
-    - name: Build storybook
-      run: npm run build-storybook
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm install 
+    - run: npm run build-storybook
+      env:
+        CI: true
