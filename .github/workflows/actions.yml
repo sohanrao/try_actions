@@ -33,7 +33,7 @@ jobs:
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
-        source-directory: work/try_actions/try_actions/storybook-static
+        source-directory: ${{ env.GITHUB_WORKSPACE }}/storybook-static
         destination-github-username: 'sohanrao'
         destination-repository-name: 'try_actions_output'
         user-email: sohan.rao@adjust.com
