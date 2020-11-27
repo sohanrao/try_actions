@@ -20,10 +20,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: Install
-      working-directory: ./frontend
       run: npm install
     - name: Build
-      working-directory: ./frontend
       run: npm run build-storybook
       env:
         CI: true
@@ -33,7 +31,7 @@ jobs:
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
-        source-directory: ${{ env.GITHUB_WORKSPACE }}/storybook-static
+        source-directory: ./storybook-static
         destination-github-username: 'sohanrao'
         destination-repository-name: 'try_actions_output'
         user-email: sohan.rao@adjust.com
