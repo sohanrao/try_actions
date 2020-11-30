@@ -1,4 +1,4 @@
-name: Github Actions
+name: Storybook Actions
 
 on:
   push:
