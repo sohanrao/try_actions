@@ -34,7 +34,6 @@ jobs:
         source-directory: ./storybook-static
         destination-github-username: 'sohanrao'
         destination-repository-name: 'try_actions_output'
-        user-email: sohan.rao@adjust.com
         commit-message: See ORIGIN_COMMIT
     - name: Test get variable exported by try_actions
       run: echo $DESTINATION_CLONED_DIRECTORY
